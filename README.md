@@ -16,7 +16,7 @@ Este proyecto contiene un conjunto de pruebas automatizadas para la página web 
    cd Sauce Demo
 3. Instala las dependencias:
    mvn clean install
-4. Asegúrate de tener ChromeDriver instalado y configurado en tu PATH.\
+4. Asegúrate de tener ChromeDriver instalado y configurado en tu PATH.
 
 ## Ejecución de las pruebas
 Para ejecutar todas las pruebas, usa el siguiente comando:
