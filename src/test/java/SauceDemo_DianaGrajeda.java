@@ -47,7 +47,6 @@ public class SauceDemo_DianaGrajeda {
         // Agregar el primer producto "Sauce Labs Backpack" al carrito desde la página principal
         WebElement addToCartBackpack = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='Sauce Labs Backpack']/following::button[contains(@class, 'btn_inventory')]")));
         addToCartBackpack.click();
-        Thread.sleep(2000);
 
         // Navegar a la página de detalles del producto "Sauce Labs Bike Light"
         WebElement bikeLightLink = driver.findElement(By.xpath("//div[text()='Sauce Labs Bike Light']/ancestor::a"));
@@ -56,7 +55,6 @@ public class SauceDemo_DianaGrajeda {
         // Agregar el segundo producto "Sauce Labs Bike Light" al carrito desde la página de detalles
         WebElement addToCartBikeLight = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(@class, 'btn_inventory')]")));
         addToCartBikeLight.click();
-        Thread.sleep(2000);
 
         // Navegar al carrito
         WebElement cartButton = driver.findElement(By.id("shopping_cart_container"));
@@ -68,7 +66,6 @@ public class SauceDemo_DianaGrajeda {
         Assertions.assertTrue(cartItem1.isDisplayed(), "El producto 'Sauce Labs Backpack' no se encontró en el carrito.");
         Assertions.assertTrue(cartItem2.isDisplayed(), "El producto 'Sauce Labs Bike Light' no se encontró en el carrito.");
 
-        Thread.sleep(3000);
         System.out.println("Test completado: Los productos 'Sauce Labs Backpack' y 'Sauce Labs Bike Light' se han agregado y verificado correctamente en el carrito.");
         driver.quit();
     }
@@ -84,24 +81,20 @@ public class SauceDemo_DianaGrajeda {
         addToCartJacket.click();
         WebElement addToCartBikeLight = driver.findElement(By.xpath("//div[text()='Sauce Labs Bike Light']/following::button[contains(@class, 'btn_inventory')]"));
         addToCartBikeLight.click();
-        Thread.sleep(2000);
 
         // Navegar a la página de detalles del producto "Sauce Labs Fleece Jacket" y eliminar el producto
         WebElement jacketLink = driver.findElement(By.xpath("//div[text()='Sauce Labs Fleece Jacket']/ancestor::a"));
         jacketLink.click();
         WebElement removeButtonJacket = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(@class, 'btn_secondary')]")));
         removeButtonJacket.click();
-        Thread.sleep(2000);
 
         // Volver a la página del carrito
         WebElement cartButton = driver.findElement(By.id("shopping_cart_container"));
         cartButton.click();
-        Thread.sleep(1000);
 
         // Eliminar el producto "Sauce Labs Bike Light" desde la página del carrito
         WebElement removeButtonBikeLight = driver.findElement(By.xpath("//div[text()='Sauce Labs Bike Light']/following::button[contains(@class, 'btn_secondary')]"));
         removeButtonBikeLight.click();
-        Thread.sleep(1000);
 
         // Verificar que el carrito esté vacío
         List<WebElement> cartItems = driver.findElements(By.className("cart_item"));
@@ -111,7 +104,6 @@ public class SauceDemo_DianaGrajeda {
             System.out.println("El carrito NO está vacío después de eliminar ambos productos.");
         }
 
-        Thread.sleep(3000);
         driver.quit();
     }
 
@@ -126,7 +118,6 @@ public class SauceDemo_DianaGrajeda {
         sortDropdown.click();
         WebElement sortLowToHigh = driver.findElement(By.xpath("//option[@value='lohi']"));
         sortLowToHigh.click();
-        Thread.sleep(2000);
 
         // Obtener los precios de los productos mostrados
         List<WebElement> priceElements = driver.findElements(By.className("inventory_item_price"));
@@ -144,7 +135,6 @@ public class SauceDemo_DianaGrajeda {
         Assertions.assertEquals(sortedPrices, actualPrices, "Los productos no están ordenados correctamente por precio de menor a mayor.");
         System.out.println("Los productos están correctamente ordenados por precio de menor a mayor.");
 
-        Thread.sleep(3000);
         driver.quit();
     }
 
@@ -159,12 +149,10 @@ public class SauceDemo_DianaGrajeda {
         addToCartBackpack.click();
         WebElement addToCartOnesie = driver.findElement(By.xpath("//div[text()='Sauce Labs Onesie']/following::button[contains(@class, 'btn_inventory')]"));
         addToCartOnesie.click();
-        Thread.sleep(2000);
 
         // Navegar al carrito
         WebElement cartButton = driver.findElement(By.id("shopping_cart_container"));
         cartButton.click();
-        Thread.sleep(1000);
 
         // Proceder al pago usando el botón "Checkout"
         WebElement checkoutButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.btn_action.checkout_button")));
@@ -172,12 +160,11 @@ public class SauceDemo_DianaGrajeda {
 
         // Rellenar la información de pago
         WebElement firstNameField = driver.findElement(By.id("first-name"));
-        firstNameField.sendKeys("John");
+        firstNameField.sendKeys("Diana");
         WebElement lastNameField = driver.findElement(By.id("last-name"));
-        lastNameField.sendKeys("Doe");
+        lastNameField.sendKeys("Grajeda");
         WebElement postalCodeField = driver.findElement(By.id("postal-code"));
         postalCodeField.sendKeys("12345");
-        Thread.sleep(2000);
 
         // Continuar al siguiente paso usando el botón "Continue"
         WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.btn_primary.cart_button")));
@@ -201,7 +188,6 @@ public class SauceDemo_DianaGrajeda {
         // Verificar que el total calculado es correcto
         Assertions.assertEquals(expectedTotal, actualTotal, 0.01, "El monto total no está calculado correctamente.");
         System.out.println("El monto total está calculado correctamente, incluyendo impuestos.");
-        Thread.sleep(2000);
 
         // Pulsar el botón "Finish"
         WebElement finishButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.btn_action.cart_button")));
@@ -212,7 +198,6 @@ public class SauceDemo_DianaGrajeda {
         Assertions.assertTrue(thankYouMessage.isDisplayed(), "El mensaje de 'THANK YOU FOR YOUR ORDER' no se mostró correctamente.");
         System.out.println("El mensaje de 'THANK YOU FOR YOUR ORDER' se mostró correctamente.");
 
-        Thread.sleep(3000);
         driver.quit();
     }
 
@@ -227,27 +212,22 @@ public class SauceDemo_DianaGrajeda {
         addToCartBackpack.click();
         WebElement addToCartOnesie = driver.findElement(By.xpath("//div[text()='Sauce Labs Bolt T-Shirt']/following::button[contains(@class, 'btn_inventory')]"));
         addToCartOnesie.click();
-        Thread.sleep(2000);
 
         // Aplicar un filtro (ordenar por precio de mayor a menor)
         WebElement sortDropdown = driver.findElement(By.className("product_sort_container"));
         sortDropdown.click();
         WebElement sortHighToLow = driver.findElement(By.xpath("//option[@value='hilo']"));
         sortHighToLow.click();
-        Thread.sleep(2000);
 
         // Restablecer el estado de la aplicación
         WebElement menuButton = driver.findElement(By.xpath("//button[text()='Open Menu']"));
         menuButton.click();
-        Thread.sleep(1000);
         WebElement resetAppStateButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("reset_sidebar_link")));
         resetAppStateButton.click();
-        Thread.sleep(1000);
 
         // Cerrar el menú después del reset
         WebElement closeMenuButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@style='position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; padding: 0px; border: none; font-size: 0px; background: transparent; color: transparent; outline: none; cursor: pointer;']")));
         closeMenuButton.click();
-        Thread.sleep(2000);
 
         // Verificar que el filtro aplicado se haya restablecido (este es el comportamiento incorrecto esperado)
         WebElement sortDropdownAfterReset = driver.findElement(By.className("product_sort_container"));
@@ -271,7 +251,6 @@ public class SauceDemo_DianaGrajeda {
         } else {
             System.out.println("Error: Los botones 'Remove' no se restablecieron a 'Add to Cart' después de 'Reset App State'.");
         }
-        Thread.sleep(2000);
 
         // Verificar que el carrito esté vacío
         WebElement cartButton = driver.findElement(By.id("shopping_cart_container"));
@@ -283,7 +262,6 @@ public class SauceDemo_DianaGrajeda {
         } else {
             System.out.println("El carrito NO está vacío después de restablecer el estado de la aplicación.");
         }
-        Thread.sleep(3000);
         driver.quit();
     }
 
@@ -300,12 +278,10 @@ public class SauceDemo_DianaGrajeda {
         addToCartOnesie.click();
         WebElement addToCartBikeLight = driver.findElement(By.xpath("//div[text()='Sauce Labs Bike Light']/following::button[contains(@class, 'btn_inventory')]"));
         addToCartBikeLight.click();
-        Thread.sleep(1000);
 
         // Navegar al carrito y verificar que los productos están presentes
         WebElement cartButton = driver.findElement(By.id("shopping_cart_container"));
         cartButton.click();
-        Thread.sleep(1000);
 
         List<WebElement> cartItems = driver.findElements(By.className("inventory_item_name"));
         Assertions.assertTrue(cartItems.stream().anyMatch(item -> item.getText().equals("Sauce Labs Backpack")), "El producto 'Sauce Labs Backpack' no se encontró en el carrito.");
@@ -314,12 +290,10 @@ public class SauceDemo_DianaGrajeda {
         System.out.println("Los tres productos están presentes en el carrito.");
 
         // Hacer logout
-        WebElement menuButton = driver.findElement(By.xpath("//button[text()='Open Menu']"));
+        WebElement menuButton = driver.findElement(By.xpath("//*[@id=\"menu_button_container\"]/div/div[3]/div/button"));
         menuButton.click();
-        Thread.sleep(1000);
         WebElement logoutButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("logout_sidebar_link")));
         logoutButton.click();
-        Thread.sleep(2000);
 
         // Volver a iniciar sesión
         login();
@@ -327,15 +301,12 @@ public class SauceDemo_DianaGrajeda {
         // Navegar al carrito y verificar que los productos aún están presentes
         cartButton = driver.findElement(By.id("shopping_cart_container"));
         cartButton.click();
-        Thread.sleep(1000);
 
         cartItems = driver.findElements(By.className("inventory_item_name"));
         Assertions.assertTrue(cartItems.stream().anyMatch(item -> item.getText().equals("Sauce Labs Backpack")), "El producto 'Sauce Labs Backpack' no se encontró en el carrito después de cerrar sesión.");
         Assertions.assertTrue(cartItems.stream().anyMatch(item -> item.getText().equals("Sauce Labs Onesie")), "El producto 'Sauce Labs Onesie' no se encontró en el carrito después de cerrar sesión.");
         Assertions.assertTrue(cartItems.stream().anyMatch(item -> item.getText().equals("Sauce Labs Bike Light")), "El producto 'Sauce Labs Bike Light' no se encontró en el carrito después de cerrar sesión.");
         System.out.println("Los productos siguen presentes en el carrito después de cerrar y volver a iniciar sesión.");
-
-        Thread.sleep(3000);
         driver.quit();
     }
 }
